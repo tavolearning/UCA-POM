@@ -1,5 +1,6 @@
 package start;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,19 +12,19 @@ import java.util.concurrent.TimeUnit;
 public class SetUp {
 
         public WebDriver driver;
-        public pages.HomePage HomePage;
-        public UtilsClass Util;
+        public pages.HomePage HomePageEx;
+        public UtilsClass UtilEx;
 
         @BeforeTest
         public void setUp(){
-            System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.get("https://www.saucedemo.com/");
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-            HomePage = new HomePage(driver);
-            Util = new UtilsClass(driver);
+            HomePageEx = new HomePage(driver);
+            UtilEx = new UtilsClass(driver);
         }
 
         @AfterTest

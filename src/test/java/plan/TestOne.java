@@ -6,13 +6,15 @@ import start.SetUp;
 
 public class TestOne extends SetUp {
 
-    @Test ()
+    @Test()
     public void verifyPageInfoTest(){
         //Check the url and the title
-        boolean findUrl = Util.verifyUrl("https://www.saucedemo.com/");
+        boolean findUrl = UtilEx.verifyUrl("https://www.saucedemo.com/");
         Assert.assertTrue(findUrl);
 
-        boolean findTitle = Util.verifyTitle("Swag Labs");
+        Assert.assertTrue(UtilEx.verifyUrl("https://www.saucedemo.com"));
+
+        boolean findTitle = UtilEx.verifyTitle("Swag Labs");
         Assert.assertTrue(findTitle);
     }
 }
